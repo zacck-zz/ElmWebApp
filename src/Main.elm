@@ -1,19 +1,20 @@
 -- Declare a module named Main exposing  everthing
 module Main exposing (..)
 -- Import the html module and div, textm program functions from it
-import Html exposing (Html, div, text, program)
+import Html exposing (Html, button, div, text, program)
+import Html.Events exposing(onClick)
 
 
 -- MODEL
 -- This is our application model we can use this later for the data layer?
 type alias Model =
-    String
+    Bool
 --define an init function this provides the initial input for the application
 -- Html.program expects a tuple  the first item being our intial state
 -- the sedond element being the command to run
 init : ( Model, Cmd Msg )
 init =
-    ( "Hello World", Cmd.none )
+    ( False, Cmd.none )
 
 
 
@@ -22,8 +23,9 @@ init =
 -- these are things that our application responds to in this case we don't do anything so we ..
 -- have a message name NoOp.
 type Msg
-    = NoOp
-
+--    = NoOp
+    = Expand
+    | Collapse
 
 
 -- VIEW
@@ -31,8 +33,16 @@ type Msg
 -- the type signature Html Msg means this will produce messages  tagged with Msg
 view : Model -> Html Msg
 view model =
-    div []
-        [ text model ]
+--    div []
+--        [ text model ]
+    if model then
+        div []
+            [button [onClick Collapse] [text "Collapse"]
+            , text "Widget"
+            ]
+    else
+        div []
+            [button [onClick Expand][text "Expand"]]
 
 
 
@@ -43,8 +53,14 @@ view model =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        NoOp ->
-            ( model, Cmd.none )
+--        NoOp ->
+--            ( model, Cmd.none )
+
+        Expand ->
+            ( True, Cmd.none )
+
+        Collapse ->
+            ( False, Cmd.none)
 
 
 
@@ -60,6 +76,7 @@ subscriptions model =
 -- MAIN
 -- Here Html.progra wires everything together and returns an html element  that we can render on our page
 -- the program takes out init,view, update and subsriptions
+-- this returns a html element rendered to the dom
 main : Program Never Model Msg
 main =
     program
