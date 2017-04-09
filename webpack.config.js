@@ -1,9 +1,12 @@
-var path = require('path');
+const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports  = {
+  context: __dirname +'/src'
   entry : {
     app: [
-      './src/index.js'
+      './index.js'
     ]
   },
   output: {
@@ -42,6 +45,11 @@ module.exports  = {
 
    noParse: /\.elm$/,
  },
+ plugins: [
+   new HTMLWebpackPlugin({
+            template: 'index-template.html'
+          })
+ ],
  devServer: {
    contentBase: './public',
    inline: true,
