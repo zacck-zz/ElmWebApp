@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "zacck <coderv63@gmail.com>",
   "license": "MIT",
+  "scripts" : {
+    "dev" : "webpack-dev-server --hot"
+  },
   "dependencies": {
     "css-loader": "^0.28.0",
     "elm-webpack-loader": "^4.3.0",

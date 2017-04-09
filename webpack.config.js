@@ -3,7 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports  = {
-  context: __dirname +'/src'
+  context: __dirname + '/src',
   entry : {
     app: [
       './index.js'
@@ -11,7 +11,7 @@ module.exports  = {
   },
   output: {
     publicPath: '/',
-    filename '[name].bundle.js',
+    filename: '[name].bundle.js',
     path: __dirname + '/public'
   },
   module: {
@@ -45,11 +45,6 @@ module.exports  = {
 
    noParse: /\.elm$/,
  },
- plugins: [
-   new HTMLWebpackPlugin({
-            template: 'index-template.html'
-          })
- ],
  devServer: {
    contentBase: './public',
    inline: true,

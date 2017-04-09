@@ -1,5 +1,6 @@
 'use strict';
 
+require('./index.html')
 //import elm
 var Elm = require('./Main.elm');
 //find div or element to attach to on DOM
