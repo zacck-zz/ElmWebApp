@@ -1,0 +1,8 @@
+{
+  "name": "AuthOElm",
+  "version": "1.0.0",
+  "description": "Use Auth0 Api in elm to learn ",
+  "main": "index.js",
+  "author": "zacck <coderv63@gmail.com>",
+  "license": "MIT"
+}
